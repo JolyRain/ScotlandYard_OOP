@@ -1,32 +1,23 @@
 package players;
 
+import game.WayBill;
+
+import java.util.HashMap;
+
 public class MisterX extends Player {
 
-    private static final int TAXI_TICKETS = 4;
-    private static final int BUS_TICKETS = 3;
-    private static final int UNDERGROUND_TICKETS = 3;
+    private WayBill wayBill;
 
-    private int doubleMoveCards = 2;
-    private int blackCards = 5;
-
-
-    public MisterX() {
-        super(TAXI_TICKETS, BUS_TICKETS, UNDERGROUND_TICKETS, Type.MISTER_X);
+    MisterX() {
+        super(Type.MISTER_X);
+        wayBill = new WayBill(new HashMap<>());
     }
 
-    public void removeDoubleMoveCard() {
-        doubleMoveCards--;
+    public WayBill getWayBill() {
+        return wayBill;
     }
 
-    public void removeBlackCard() {
-        blackCards--;
-    }
-
-    public boolean hasDoubleMoveCards() {
-        return doubleMoveCards > 0;
-    }
-
-    public boolean hasBlackCard() {
-        return blackCards > 0;
+    public void setWayBill(WayBill wayBill) {
+        this.wayBill = wayBill;
     }
 }
