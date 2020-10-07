@@ -6,6 +6,7 @@ import graph.Vertex;
 import java.util.Map;
 
 public class WayBill {
+
     private Map<Vertex, Ticket> stepsMap;
     private Integer stepsToShow;
 

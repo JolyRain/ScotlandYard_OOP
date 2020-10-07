@@ -5,6 +5,7 @@ import game.Ticket;
 import java.util.Map;
 
 public abstract class Player {
+
     private final Type TYPE;
     private Map<Ticket, Integer> ticketsMap;
 

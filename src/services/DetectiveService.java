@@ -13,8 +13,4 @@ public class DetectiveService implements PlayerService {
 
     }
 
-    @Override
-    public void removeTicket(Player player, Ticket ticket) {
-
-    }
 }

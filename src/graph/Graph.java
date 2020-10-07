@@ -3,6 +3,7 @@ package graph;
 import java.util.*;
 
 public class Graph {
+
     private Map<Vertex, Set<Vertex>> adjacentVerticesMap = new HashMap<>();
     private Set<Vertex> vertices = new HashSet<>();
     private List<Edge> edges = new LinkedList<>();
@@ -59,11 +60,15 @@ public class Graph {
         return adjacentVerticesMap;
     }
 
-    Set<Vertex> getVertices() {
+    public Set<Vertex> getVertices() {
         return vertices;
     }
 
     List<Edge> getEdges() {
         return edges;
+    }
+
+    public Map<Vertex, Set<Vertex>> getAdjacencyMap() {
+        return adjacentVerticesMap;
     }
 }

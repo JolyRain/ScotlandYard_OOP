@@ -11,6 +11,10 @@ public class Vertex {
     public Vertex() {
     }
 
+    public Vertex(String stationNumber) {
+        this.stationNumber = stationNumber;
+    }
+
     public String getStationNumber() {
         return stationNumber;
     }
