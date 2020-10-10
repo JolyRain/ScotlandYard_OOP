@@ -12,10 +12,6 @@ public class Edge {
         this.endVertex = endVertex;
     }
 
-    boolean contains(Vertex vertex) {
-        return startVertex.equals(vertex) || endVertex.equals(vertex);
-    }
-
     public Vertex getStartVertex() {
         return startVertex;
     }

@@ -1,7 +1,6 @@
-package services;
+package services.playerServices;
 
 import game.Ticket;
-import graph.TypeRoad;
 import graph.Vertex;
 import players.Player;
 
