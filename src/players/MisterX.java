@@ -1,5 +1,6 @@
 package players;
 
+import game.TypePlayer;
 import game.WayBill;
 
 import java.util.HashMap;
@@ -9,7 +10,7 @@ public class MisterX extends Player {
     private WayBill wayBill;
 
     MisterX() {
-        super(Type.MISTER_X);
+        super(TypePlayer.MISTER_X);
         wayBill = new WayBill(new HashMap<>());
     }
 

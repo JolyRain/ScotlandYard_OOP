@@ -44,7 +44,7 @@ public class Vertex {
 
     @Override
     public int hashCode() {
-        return Objects.hash(stationNumber);
+        return Objects.hash(stationNumber, roadMap);
     }
 
     @Override

@@ -1,19 +1,20 @@
 package players;
 
 import game.Ticket;
+import game.TypePlayer;
 
 import java.util.Map;
 
 public abstract class Player {
 
-    private final Type TYPE;
+    private final TypePlayer TYPE;
     private Map<Ticket, Integer> ticketsMap;
 
-    Player(Type type) {
+    Player(TypePlayer type) {
         this.TYPE = type;
     }
 
-    public Type getTYPE() {
+    public TypePlayer getTYPE() {
         return TYPE;
     }
 
@@ -30,7 +31,5 @@ public abstract class Player {
         return "Player{" + TYPE + '}';
     }
 
-    public enum Type {
-        MISTER_X, DETECTIVE
-    }
+
 }

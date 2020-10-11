@@ -68,7 +68,6 @@ public class GraphService {
         return  null;
     }
 
-
     public void clear(Graph graph) {
         Map<Vertex, Set<Vertex>> adjacencyMap = graph.getAdjacencyMap();
         Set<Vertex> vertices = graph.getVertices();
