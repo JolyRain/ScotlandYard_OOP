@@ -2,6 +2,7 @@ package services.playerServices;
 
 import game.ScotlandYardGame;
 import game.Ticket;
+import game.TypeTicket;
 import graph.Vertex;
 import players.Player;
 
@@ -12,9 +13,10 @@ public interface PlayerService {
     void moveTo(Player player, ScotlandYardGame game, Vertex targetStation, Ticket ticket);
 
     default void removeTicket(Player player, Ticket ticket) {
-        Map<Ticket, Integer> ticketsMap = player.getTicketsMap();
-        Integer amountTickets = player.getTicketsMap().get(ticket);
-        ticketsMap.put(ticket, amountTickets - 1);
+        Map<TypeTicket, Integer> ticketsMap = player.getTicketsMap();
+        Integer amountTickets = player.getTicketsMap().get(ticket.getType());
+        ticketsMap.put(ticket.getType(), amountTickets - 1);
+        player.getTickets().removeIf(currentTicket -> currentTicket.equals(ticket));
     }
 
 }

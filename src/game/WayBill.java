@@ -1,24 +1,26 @@
 package game;
 
-import graph.TypeRoad;
 import graph.Vertex;
 
 import java.util.Map;
 
 public class WayBill {
 
-    private Map<Vertex, Ticket> stepsMap;
+    private Map<Vertex, TypeTicket> stepsMap;
     private Integer stepsToShow;
+    private Vertex showedStation;
 
-    public WayBill(Map<Vertex, Ticket> misterXStepsMap) {
+    public WayBill(Map<Vertex, TypeTicket> misterXStepsMap) {
         this.stepsMap = misterXStepsMap;
+        stepsToShow = 0;
+        showedStation = null;
     }
 
-    public Map<Vertex, Ticket> getStepsMap() {
+    public Map<Vertex, TypeTicket> getStepsMap() {
         return stepsMap;
     }
 
-    public void setStepsMap(Map<Vertex, Ticket> stepsMap) {
+    public void setStepsMap(Map<Vertex, TypeTicket> stepsMap) {
         this.stepsMap = stepsMap;
     }
 
@@ -28,5 +30,13 @@ public class WayBill {
 
     public void setStepsToShow(Integer stepsToShow) {
         this.stepsToShow = stepsToShow;
+    }
+
+    public Vertex getShowedStation() {
+        return showedStation;
+    }
+
+    public void setShowedStation(Vertex showedStation) {
+        this.showedStation = showedStation;
     }
 }

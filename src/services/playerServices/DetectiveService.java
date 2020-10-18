@@ -2,7 +2,6 @@ package services.playerServices;
 
 import game.ScotlandYardGame;
 import game.Ticket;
-import game.WayBill;
 import graph.Vertex;
 import players.Detective;
 import players.MisterX;
@@ -11,6 +10,8 @@ import players.Player;
 import java.util.Map;
 
 public class DetectiveService implements PlayerService {
+
+    private MisterXService misterXService = new MisterXService();
 
     @Override
     public void moveTo(Player player, ScotlandYardGame game, Vertex targetStation, Ticket ticket) {
@@ -22,9 +23,8 @@ public class DetectiveService implements PlayerService {
         removeTicket(detective, game.getMisterX(), ticket);
     }
 
-    public void removeTicket(Player player, MisterX misterX, Ticket ticket) {
+    private void removeTicket(Player player, MisterX misterX, Ticket ticket) {
         removeTicket(player, ticket);
-        MisterXService misterXService = new MisterXService();
         misterXService.addTicket(misterX, ticket);
     }
 }

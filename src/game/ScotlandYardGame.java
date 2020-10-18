@@ -1,25 +1,34 @@
 package game;
 
-import graph.Edge;
 import graph.Graph;
+import graph.TypeRoad;
 import graph.Vertex;
 import players.MisterX;
 import players.Player;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 public class ScotlandYardGame {
+    public static final Map<TypeTicket, TypeRoad> TICKET_ROAD_MAP = new HashMap<>();
+    public static final Integer MOVE_AMOUNT = 23;
+    public static final Integer DETECTIVES_AMOUNT = 3;
+
+    static {
+        TICKET_ROAD_MAP.put(TypeTicket.TAXI, TypeRoad.TAXI);
+        TICKET_ROAD_MAP.put(TypeTicket.BUS, TypeRoad.BUS);         //говнокод какой-то
+        TICKET_ROAD_MAP.put(TypeTicket.METRO, TypeRoad.METRO);
+    }
+
     private Graph graph;
+    private GameState gameState;
     private Map<Vertex, Player> vertexPlayerMap;
     private Map<Player, Vertex> playerVertexMap;
     private Set<Player> detectives;
     private MisterX misterX;
-    private Integer stepsToShow;
     private List<Vertex> stations;
-    private Vertex lastThiefLocation;
-    private Edge thiefEdge;
 
     public Graph getGraph() {
         return graph;
@@ -27,6 +36,14 @@ public class ScotlandYardGame {
 
     public void setGraph(Graph graph) {
         this.graph = graph;
+    }
+
+    public GameState getGameState() {
+        return gameState;
+    }
+
+    public void setGameState(GameState gameState) {
+        this.gameState = gameState;
     }
 
     public Map<Vertex, Player> getVertexPlayerMap() {
@@ -61,36 +78,12 @@ public class ScotlandYardGame {
         this.misterX = misterX;
     }
 
-    public Integer getStepsToShow() {
-        return stepsToShow;
-    }
-
-    public void setStepsToShow(Integer stepsToShow) {
-        this.stepsToShow = stepsToShow;
-    }
-
     public List<Vertex> getStations() {
         return stations;
     }
 
     public void setStations(List<Vertex> stations) {
         this.stations = stations;
-    }
-
-    public Vertex getLastThiefLocation() {
-        return lastThiefLocation;
-    }
-
-    public void setLastThiefLocation(Vertex lastThiefLocation) {
-        this.lastThiefLocation = lastThiefLocation;
-    }
-
-    public Edge getThiefEdge() {
-        return thiefEdge;
-    }
-
-    public void setThiefEdge(Edge thiefEdge) {
-        this.thiefEdge = thiefEdge;
     }
 
 }

@@ -7,9 +7,14 @@ import java.util.HashMap;
 
 public class MisterX extends Player {
 
+    public static final Integer AMOUNT_TAXI_TICKETS = 4;
+    public static final Integer AMOUNT_BUS_TICKETS = 3;
+    public static final Integer AMOUNT_METRO_TICKETS = 3;
+    public static final Integer AMOUNT_DOUBLE_TICKETS = 2;
+
     private WayBill wayBill;
 
-    MisterX() {
+    public MisterX() {
         super(TypePlayer.MISTER_X);
         wayBill = new WayBill(new HashMap<>());
     }

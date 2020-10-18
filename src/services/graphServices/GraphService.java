@@ -11,11 +11,13 @@ import java.util.Set;
 
 public class GraphService {
 
+    private EdgeService edgeService = new EdgeService();
+
     private Iterable<Vertex> adjacent(Graph graph, Vertex vertex) {
         return graph.getAdjacencyMap().get(vertex);
     }
 
-    public boolean addVertex(Graph  graph, Vertex vertex) {
+    public boolean addVertex(Graph graph, Vertex vertex) {
         Map<Vertex, Set<Vertex>> adjacencyMap = graph.getAdjacencyMap();
         Set<Vertex> vertices = graph.getVertices();
         vertex.setStationNumber(String.valueOf(vertices.size()));
@@ -40,7 +42,6 @@ public class GraphService {
 
     public Edge getEdge(Graph graph, Vertex start, Vertex end) {
         List<Edge> edges = graph.getEdges();
-        EdgeService edgeService = new EdgeService();
         for (Edge edge : edges) {
             if (edgeService.contains(edge, start) && edgeService.contains(edge, end)) return edge;
         }
@@ -65,7 +66,7 @@ public class GraphService {
         for (Vertex current : vertices) {
             if (current.equals(target)) return current;
         }
-        return  null;
+        return null;
     }
 
     public void clear(Graph graph) {

@@ -1,5 +1,5 @@
 package game;
 
-public enum Ticket {
+public enum TypeTicket {
     BUS, METRO, TAXI, DOUBLE, BLACK
 }
