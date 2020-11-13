@@ -7,9 +7,10 @@ public class Edge {
     private Vertex endVertex;
     private TypeRoad type;
 
-    public Edge(Vertex startVertex, Vertex endVertex) {
+    public Edge(Vertex startVertex, Vertex endVertex, TypeRoad type) {
         this.startVertex = startVertex;
         this.endVertex = endVertex;
+        this.type = type;
     }
 
     public Vertex getStartVertex() {

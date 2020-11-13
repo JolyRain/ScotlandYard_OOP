@@ -2,6 +2,7 @@ package services.graphServices;
 
 import graph.Edge;
 import graph.Graph;
+import graph.TypeRoad;
 import graph.Vertex;
 
 import java.util.HashSet;
@@ -33,9 +34,20 @@ public class GraphService {
         return null;
     }
 
-    private boolean isAdjacent(Graph graph, Vertex firstVertex, Vertex secondVertex) {
-        for (Vertex adjacent : adjacent(graph, firstVertex)) {
-            if (adjacent.equals(secondVertex)) return true;
+//    private boolean isAdjacent(Graph graph, Vertex firstVertex, Vertex secondVertex, TypeRoad typeRoad) {
+//        for (Vertex adjacentVertex : adjacent(graph, firstVertex)) {
+//            if (hasPath(graph, firstVertex, secondVertex, typeRoad)) {
+//                    return true;
+//            }
+//        }
+//        return false;
+//    }
+    private boolean hasPath(Vertex firstVertex, Vertex secondVertex, TypeRoad typeRoad) {
+        for (Edge edge : firstVertex.getRoadMap().get(typeRoad)) {
+            Vertex startVertex = edge.getStartVertex();
+            Vertex endVertex = edge.getEndVertex();
+            return edgeService.contains(edge, startVertex, secondVertex);
+
         }
         return false;
     }
@@ -52,14 +64,17 @@ public class GraphService {
         Map<Vertex, Set<Vertex>> adjacencyMap = graph.getAdjacencyMap();
         Vertex startVertex = edge.getStartVertex();
         Vertex endVertex = edge.getEndVertex();
-        if (!isAdjacent(graph, startVertex, endVertex)) {
+        if (!hasPath(startVertex, endVertex, edge.getType())) {
             adjacencyMap.get(startVertex).add(endVertex);
-            startVertex.getRoadMap().get(edge.getType()).add(edge);
             adjacencyMap.get(endVertex).add(startVertex);
+            Map<TypeRoad, List<Edge>> roadMap = startVertex.getRoadMap();
+            List<Edge> edgeList = roadMap.get(edge.getType());
+            edgeList.add(edge);
             endVertex.getRoadMap().get(edge.getType()).add(edge);
             graph.getEdges().add(edge);
         }
     }
+
 
     public Vertex getVertex(Graph graph, Vertex target) {
         Set<Vertex> vertices = graph.getVertices();

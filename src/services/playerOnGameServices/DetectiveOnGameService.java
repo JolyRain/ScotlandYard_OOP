@@ -7,6 +7,7 @@ import game.TypePlayer;
 import graph.Edge;
 import graph.TypeRoad;
 import graph.Vertex;
+import players.Detective;
 import players.MisterX;
 import players.Player;
 import services.graphServices.EdgeService;
@@ -23,9 +24,9 @@ public class DetectiveOnGameService implements PlayerOnGameService {
 
     @Override
     public Vertex getCurrentStation(Player player, ScotlandYardGame game) {
-        MisterX misterX = (MisterX) player;
+        Detective detective = (Detective) player;
         Map<Player, Vertex> playerVertexMap = game.getPlayerVertexMap();
-        return playerVertexMap.get(misterX);
+        return playerVertexMap.get(detective);
     }
 
     @Override
@@ -48,7 +49,6 @@ public class DetectiveOnGameService implements PlayerOnGameService {
             if (gameService.isFreeStation(availableStation, game) || playerOnStation.getTYPE().equals(TypePlayer.MISTER_X)) {
                 availableStations.add(availableStation);
             }
-            availableStations.add(availableStation);
         }
         return availableStations;
     }
@@ -56,6 +56,7 @@ public class DetectiveOnGameService implements PlayerOnGameService {
     @Override
     public Vertex setTargetStation(Player player, ScotlandYardGame game, Ticket ticket) {
         List<Vertex> availableStations = getAvailableStations(player, game, ticket);
+        if (availableStations.size() == 0) return null;
         int randomIndex = (int) (Math.random() * availableStations.size());
         return availableStations.get(randomIndex);
     }

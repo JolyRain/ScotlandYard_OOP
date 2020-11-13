@@ -26,4 +26,5 @@ public class MisterX extends Player {
     public void setWayBill(WayBill wayBill) {
         this.wayBill = wayBill;
     }
+
 }

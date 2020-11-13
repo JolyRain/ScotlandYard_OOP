@@ -19,4 +19,8 @@ public interface PlayerService {
         player.getTickets().removeIf(currentTicket -> currentTicket.equals(ticket));
     }
 
+    default boolean hasTickets(Player player) {
+        return player.getTickets().size() != 0;
+    }
+
 }

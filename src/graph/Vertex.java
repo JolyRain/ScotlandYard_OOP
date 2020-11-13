@@ -1,9 +1,6 @@
 package graph;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 public class Vertex {
     private String stationNumber;
@@ -11,11 +8,17 @@ public class Vertex {
 
     public Vertex() {
         roadMap = new HashMap<>();
+        roadMap.put(TypeRoad.TAXI, new LinkedList<>());
+        roadMap.put(TypeRoad.BUS, new LinkedList<>());
+        roadMap.put(TypeRoad.METRO, new LinkedList<>());
     }
 
     public Vertex(String stationNumber) {
         this.stationNumber = stationNumber;
-        roadMap = new HashMap<>();
+    }
+
+    private void initMap() {
+
     }
 
     public Map<TypeRoad, List<Edge>> getRoadMap() {
@@ -44,7 +47,7 @@ public class Vertex {
 
     @Override
     public int hashCode() {
-        return Objects.hash(stationNumber, roadMap);
+        return Objects.hash(stationNumber);
     }
 
     @Override

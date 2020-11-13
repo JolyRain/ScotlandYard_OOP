@@ -4,6 +4,8 @@ import game.Ticket;
 import game.TypeTicket;
 import game.TypePlayer;
 
+import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -15,6 +17,8 @@ public abstract class Player {
 
     Player(TypePlayer type) {
         this.TYPE = type;
+        ticketsMap = new HashMap<>();
+        tickets = new LinkedList<>();
     }
 
     public TypePlayer getTYPE() {
@@ -39,8 +43,16 @@ public abstract class Player {
 
     @Override
     public String toString() {
-        return "Player{" + TYPE + '}';
+        return TYPE.toString();
     }
 
-
+    public String ticketsToString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(" TICKETS = [ ");
+        for (Map.Entry<TypeTicket, Integer> entry : ticketsMap.entrySet()) {
+            stringBuilder.append(entry.getKey()).append(" = ").append(entry.getValue()).append(" ");
+        }
+        stringBuilder.append("]");
+        return stringBuilder.toString();
+    }
 }

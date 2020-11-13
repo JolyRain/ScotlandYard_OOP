@@ -1,6 +1,7 @@
 package players;
 
 import game.TypePlayer;
+import game.TypeTicket;
 
 public class Detective extends Player {
 
@@ -21,5 +22,11 @@ public class Detective extends Player {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+
+    @Override
+    public String toString() {
+        return this.getTYPE().toString() + "-" + name;
     }
 }

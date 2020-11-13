@@ -13,12 +13,12 @@ import java.util.Set;
 
 public class ScotlandYardGame {
     public static final Map<TypeTicket, TypeRoad> TICKET_ROAD_MAP = new HashMap<>();
-    public static final Integer MOVE_AMOUNT = 23;
-    public static final Integer DETECTIVES_AMOUNT = 3;
+    public static final Integer MOVE_AMOUNT = 22;
+    public static final Integer DETECTIVES_AMOUNT = 2;
 
     static {
         TICKET_ROAD_MAP.put(TypeTicket.TAXI, TypeRoad.TAXI);
-        TICKET_ROAD_MAP.put(TypeTicket.BUS, TypeRoad.BUS);         //говнокод какой-то
+        TICKET_ROAD_MAP.put(TypeTicket.BUS, TypeRoad.BUS);         //улучшить
         TICKET_ROAD_MAP.put(TypeTicket.METRO, TypeRoad.METRO);
     }
 
@@ -38,11 +38,11 @@ public class ScotlandYardGame {
         this.graph = graph;
     }
 
-    public GameState getGameState() {
+    public GameState getState() {
         return gameState;
     }
 
-    public void setGameState(GameState gameState) {
+    public void setState(GameState gameState) {
         this.gameState = gameState;
     }
 
@@ -86,4 +86,15 @@ public class ScotlandYardGame {
         this.stations = stations;
     }
 
+    @Override
+    public String toString() {
+        return "ScotlandYardGame{" +
+                "gameState = " + gameState +
+                ", vertexPlayerMap = " + vertexPlayerMap +
+                ", playerVertexMap = " + playerVertexMap +
+                ", detectives = " + detectives +
+                ", misterX = " + misterX +
+                ", stations = " + stations +
+                '}';
+    }
 }
